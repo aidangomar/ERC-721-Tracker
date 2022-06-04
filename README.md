@@ -1,0 +1,2 @@
+this tool uses etherscan to gather txhashes, timestamps, id's, etc, and web3.js/infura to gather monetary values, and spits out json files relating to the calculations made from the data. 
+project uses react.js for the frontend
