@@ -1,13 +1,25 @@
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
+const execSync = require('child_process').execSync
 
 const Form = () => {
     let navigate = useNavigate()
     const [address, setNewAddress] = useState('')
   
-    const handleSubmit = (event) => {
+    // TODO: make a spinny bar
+    const handleSubmit = async (event) => {
+
       console.log('submitted ' + address)
-      navigate(`/address/${address}`)
+
+
+      await instantiateData(address).then(
+        navigate(`/address/${address}`)
+      )
+    }
+
+    const instantiateData = (address) => {
+      const result = execSync(`../scripts/getEth.sh ${address}`)
+      console.log(result)
     }
   
     const handleAddressChange = (event) => {

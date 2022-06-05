@@ -6,6 +6,10 @@ import Address from './components/Address'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import reportWebVitals from './reportWebVitals';
 
+const execSync = require('child_process').execSync
+const result = execSync(`ls`)
+console.log(result)
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
