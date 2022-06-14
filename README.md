@@ -1,3 +1,8 @@
+this tool uses etherscan to gather txhashes, timestamps, id's, etc, and web3.js/infura to gather monetary values, and spits out json files relating to the calculations made from the data. 
+project uses react.js for the frontend
+
+-------------------------------------------------------------------------------
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
