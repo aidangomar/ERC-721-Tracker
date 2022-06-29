@@ -1,10 +1,4 @@
-/*
-script instantiates all the nft json data for the other api calls
-*/
-
-
 const fs = require('fs')
-
 const { execSync } = require("child_process")
 
 // get the path to nft_txns.json
@@ -26,12 +20,15 @@ const executeSh = (addr) => {
   })
 }
 
-const handler = ({ query: { id } }, res) => {
+const handler = (req, res) => {
   if (!fs.existsSync(nft_txns_path)) {
     fs.writeFileSync(nft_txns_path, JSON.stringify({ bruh: "moment" }))
     fs.writeFileSync(flipped_nfts_path, JSON.stringify({ bruh: "moment" }))
   }
-  executeSh(id)
+  //const id = req.url.split('/').pop()
+  //console.log(id)
+  executeSh(req.url.split('/').pop())
+  console.log(req.url.split('/').pop())
   res.status(200).json(JSON.stringify({ status: "OK" }))
 }
 
